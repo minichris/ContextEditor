@@ -1,9 +1,0 @@
-L:\Git-Clonearea\ContextEditorcl\ContextEditorCL\bin\Debug\ContextEditorCL.exe.config
-L:\Git-Clonearea\ContextEditorcl\ContextEditorCL\obj\Debug\ContextEditorCL.csprojResolveAssemblyReference.cache
-L:\Git-Clonearea\ContextEditorcl\ContextEditorCL\bin\Debug\ContextEditorCL.exe
-L:\Git-Clonearea\ContextEditorcl\ContextEditorCL\bin\Debug\ContextEditorCL.pdb
-L:\Git-Clonearea\ContextEditorcl\ContextEditorCL\obj\Debug\ContextEditorCL.exe
-L:\Git-Clonearea\ContextEditorcl\ContextEditorCL\obj\Debug\ContextEditorCL.pdb
-L:\Git-Clonearea\ContextEditor\bin\Debug\ContextEditorCL.exe.config
-L:\Git-Clonearea\ContextEditor\obj\Debug\ContextEditorCL.exe
-L:\Git-Clonearea\ContextEditor\obj\Debug\ContextEditorCL.pdb
