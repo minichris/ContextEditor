@@ -62,6 +62,10 @@ namespace ContextEditorCL
 
         static void Main(string[] args)
         {
+            //args = new string[3];
+            //args[0] = "add";
+            //args[1] = "ToWebM";
+            //args[2] = AppDomain.CurrentDomain.BaseDirectory + "ffmpeg.exe -i \"%1\" -c:v libvpx -crf 10 -b:v 1M -c:a libvorbis \"%1\".webm";
             if (args.Length == 0)//if there no command line arguments
             {
                 Console.WriteLine("First argument options:");
