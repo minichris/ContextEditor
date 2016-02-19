@@ -13,10 +13,8 @@ namespace ContextEditorCL
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public static List<string> GetRegistryContent(string RegPath)
         {
-            InitializeComponent();
-            string RegPath = @"*\shell";
             using (RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(RegPath))
             {
                 List<string> MyList = new List<string>();
@@ -24,14 +22,65 @@ namespace ContextEditorCL
                 {
                     MyList.Add(SubKey);
                 }
-                listBox3.DataSource = MyList;
                 registryKey.Close();
+                return MyList;
             }
         }
 
+        public static string GetRegistryString(string RegPath, string ValueName)
+        {     
+            using (RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(RegPath))
+            {
+                if (registryKey != null)
+                {
+                    foreach (string RegValueName in registryKey.GetValueNames())
+                    {
+                        if (RegValueName == ValueName)
+                        {
+                            return registryKey.GetValue(RegValueName).ToString();
+                        }
+                    }
+                    registryKey.Close();
+                }
+                else
+                {
+                    return null;
+                }
+                return null;
+            }
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+            listBox3.DataSource = GetRegistryContent(@"*\shell");
+            
+        }
+        string SelectedItem;
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.Text = listBox3.SelectedItem.ToString();
+            SelectedItem = listBox3.SelectedItem.ToString();
+            string RegPath = @"*\shell\" + SelectedItem + @"\command";
+            textBox1.Text = GetRegistryString(RegPath, "IsolatedCommand");
+            Console.WriteLine((RegPath));
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Program.AddKey(SelectedItem, textBox1.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Program.RemoveKey(SelectedItem);
+            listBox3.DataSource = GetRegistryContent(@"*\shell");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Program.AddKey(NewNameBox.Text, "");
+            listBox3.DataSource = GetRegistryContent(@"*\shell");
         }
     }
 }

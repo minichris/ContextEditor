@@ -36,7 +36,7 @@ namespace ContextEditorCL
             }
         }
 
-        static void AddKey(string keyname, string command)
+        public static void AddKey(string keyname, string command)
         {
             string RegPath = @"*\shell\" + keyname;
             using (RegistryKey registryKey = Registry.ClassesRoot.CreateSubKey(RegPath))
@@ -55,10 +55,10 @@ namespace ContextEditorCL
             }
         }
 
-        static void RemoveKey(string keyname)
+        public static void RemoveKey(string keyname)
         {
             string RegPath = @"*\shell\" + keyname;
-            Registry.ClassesRoot.DeleteSubKey(RegPath);
+            Registry.ClassesRoot.DeleteSubKeyTree(RegPath);
         }
 
         static void Main(string[] args)
