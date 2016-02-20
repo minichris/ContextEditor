@@ -35,6 +35,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.NewNameBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox3
@@ -100,9 +101,20 @@
             this.NewNameBox.Size = new System.Drawing.Size(131, 20);
             this.NewNameBox.TabIndex = 6;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(284, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(267, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Use \"%1\" to refer to the file that is being rightclicked on";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(563, 287);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.NewNameBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -126,5 +138,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox NewNameBox;
+        private System.Windows.Forms.Label label1;
     }
 }

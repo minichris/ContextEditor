@@ -20,7 +20,10 @@ namespace ContextEditorCL
                 List<string> MyList = new List<string>();
                 foreach (string SubKey in registryKey.GetSubKeyNames())
                 {
-                    MyList.Add(SubKey);
+                    if (SubKey != "removeproperties")
+                    {
+                        MyList.Add(SubKey);
+                    }
                 }
                 registryKey.Close();
                 return MyList;

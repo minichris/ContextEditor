@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
 
 namespace ContextEditorCL
 {
