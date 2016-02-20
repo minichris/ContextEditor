@@ -36,6 +36,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.NewNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.FolderToggle = new System.Windows.Forms.CheckBox();
+            this.System32Box = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // listBox3
@@ -111,9 +113,35 @@
             this.label1.Text = "Use \"%1\" to refer to the file that is being rightclicked on";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // FolderToggle
+            // 
+            this.FolderToggle.AutoSize = true;
+            this.FolderToggle.Location = new System.Drawing.Point(233, 260);
+            this.FolderToggle.Name = "FolderToggle";
+            this.FolderToggle.Size = new System.Drawing.Size(85, 17);
+            this.FolderToggle.TabIndex = 8;
+            this.FolderToggle.Text = "Folder Mode";
+            this.FolderToggle.UseVisualStyleBackColor = true;
+            this.FolderToggle.CheckedChanged += new System.EventHandler(this.FolderToggle_CheckedChanged);
+            // 
+            // System32Box
+            // 
+            this.System32Box.AutoSize = true;
+            this.System32Box.Cursor = System.Windows.Forms.Cursors.No;
+            this.System32Box.Enabled = false;
+            this.System32Box.Location = new System.Drawing.Point(324, 260);
+            this.System32Box.Name = "System32Box";
+            this.System32Box.Size = new System.Drawing.Size(102, 17);
+            this.System32Box.TabIndex = 9;
+            this.System32Box.Text = "System32 Mode";
+            this.System32Box.UseVisualStyleBackColor = true;
+            this.System32Box.CheckedChanged += new System.EventHandler(this.System32Box_CheckedChanged);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(563, 287);
+            this.Controls.Add(this.System32Box);
+            this.Controls.Add(this.FolderToggle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NewNameBox);
             this.Controls.Add(this.button3);
@@ -139,5 +167,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox NewNameBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox FolderToggle;
+        private System.Windows.Forms.CheckBox System32Box;
     }
 }

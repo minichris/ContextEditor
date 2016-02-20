@@ -12,9 +12,58 @@ namespace ContextEditorCL
 {
     class Program
     {
+        public static string KeyAddressPrefix = @"*\shell\";
+        public static void SetEditMode(bool FolderMode)
+        {
+            if (FolderMode)
+            {
+                KeyAddressPrefix = @"folder\shell\";
+            }
+            else {
+                KeyAddressPrefix = @"*\shell\";
+            }
+        }
+
+        public static List<string> GetRegistryContent(string RegPath)
+        {
+            using (RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(RegPath))
+            {
+                List<string> MyList = new List<string>();
+                foreach (string SubKey in registryKey.GetSubKeyNames())
+                {
+                    MyList.Add(SubKey);
+                }
+                registryKey.Close();
+                return MyList;
+            }
+        }
+
+        public static string GetRegistryString(string RegPath, string ValueName)
+        {
+            using (RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(RegPath))
+            {
+                if (registryKey != null)
+                {
+                    foreach (string RegValueName in registryKey.GetValueNames())
+                    {
+                        if (RegValueName == ValueName)
+                        {
+                            return registryKey.GetValue(RegValueName).ToString();
+                        }
+                    }
+                    registryKey.Close();
+                }
+                else
+                {
+                    return null;
+                }
+                return null;
+            }
+        }
+
         static int ViewKey(string key)
         {
-            string RegPath = @"*\shell\" + key;
+            string RegPath = KeyAddressPrefix + key;
             using (RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(RegPath))
             {
                 Console.WriteLine("Reading from: HKEY_CLASSES_ROOT\\{0}", RegPath);
@@ -40,7 +89,7 @@ namespace ContextEditorCL
 
         public static void AddKey(string keyname, string command)
         {
-            string RegPath = @"*\shell\" + keyname;
+            string RegPath = KeyAddressPrefix + keyname;
             using (RegistryKey registryKey = Registry.ClassesRoot.CreateSubKey(RegPath))
             {
                 Console.WriteLine("Writing to: HKEY_CLASSES_ROOT\\{0}", RegPath);
@@ -59,7 +108,7 @@ namespace ContextEditorCL
 
         public static void RemoveKey(string keyname)
         {
-            string RegPath = @"*\shell\" + keyname;
+            string RegPath = KeyAddressPrefix + keyname;
             Registry.ClassesRoot.DeleteSubKeyTree(RegPath);
         }
 

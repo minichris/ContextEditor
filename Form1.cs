@@ -13,60 +13,25 @@ namespace ContextEditorCL
 {
     public partial class Form1 : Form
     {
-        public static List<string> GetRegistryContent(string RegPath)
-        {
-            using (RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(RegPath))
-            {
-                List<string> MyList = new List<string>();
-                foreach (string SubKey in registryKey.GetSubKeyNames())
-                {
-                    if (SubKey != "removeproperties")
-                    {
-                        MyList.Add(SubKey);
-                    }
-                }
-                registryKey.Close();
-                return MyList;
-            }
-        }
-
-        public static string GetRegistryString(string RegPath, string ValueName)
-        {     
-            using (RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(RegPath))
-            {
-                if (registryKey != null)
-                {
-                    foreach (string RegValueName in registryKey.GetValueNames())
-                    {
-                        if (RegValueName == ValueName)
-                        {
-                            return registryKey.GetValue(RegValueName).ToString();
-                        }
-                    }
-                    registryKey.Close();
-                }
-                else
-                {
-                    return null;
-                }
-                return null;
-            }
-        }
-
         public Form1()
         {
             InitializeComponent();
-            listBox3.DataSource = GetRegistryContent(@"*\shell");
-            
+            listBox3.DataSource = Program.GetRegistryContent(Program.KeyAddressPrefix);
         }
         string SelectedItem;
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedItem = listBox3.SelectedItem.ToString();
-            string RegPath = @"*\shell\" + SelectedItem + @"\command";
-            textBox1.Text = GetRegistryString(RegPath, "IsolatedCommand");
-            Console.WriteLine((RegPath));
-
+            string RegPath = Program.KeyAddressPrefix + SelectedItem;
+            textBox1.Text = Program.GetRegistryString(RegPath + @"\command", "IsolatedCommand");
+            if (Program.GetRegistryString(RegPath, "NoWorkingDirectory") == "") //If there is a "no working directory" key
+            {
+                System32Box.Checked = true; //check the box
+            }
+            else
+            {
+                System32Box.Checked = false; //uncheck the box
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -77,13 +42,24 @@ namespace ContextEditorCL
         private void button2_Click(object sender, EventArgs e)
         {
             Program.RemoveKey(SelectedItem);
-            listBox3.DataSource = GetRegistryContent(@"*\shell");
+            listBox3.DataSource = Program.GetRegistryContent(Program.KeyAddressPrefix);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Program.AddKey(NewNameBox.Text, "");
-            listBox3.DataSource = GetRegistryContent(@"*\shell");
+            listBox3.DataSource = Program.GetRegistryContent(Program.KeyAddressPrefix);
+        }
+
+        private void FolderToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.SetEditMode(FolderToggle.Checked);
+            listBox3.DataSource = Program.GetRegistryContent(Program.KeyAddressPrefix);
+        }
+
+        private void System32Box_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
