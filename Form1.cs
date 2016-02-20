@@ -17,6 +17,7 @@ namespace ContextEditorCL
         {
             InitializeComponent();
             listBox3.DataSource = Program.GetRegistryContent(Program.KeyAddressPrefix);
+            comboBox1.Text = "*";
         }
         string SelectedItem;
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace ContextEditorCL
             {
                 System32Box.Checked = false; //uncheck the box
             }
+            AddressLabel.Text = @"HKEY_CLASSES_ROOT\" + RegPath + @"\command";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,15 +53,10 @@ namespace ContextEditorCL
             listBox3.DataSource = Program.GetRegistryContent(Program.KeyAddressPrefix);
         }
 
-        private void FolderToggle_CheckedChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Program.SetEditMode(FolderToggle.Checked);
+            Program.SetEditMode(comboBox1.SelectedItem.ToString());
             listBox3.DataSource = Program.GetRegistryContent(Program.KeyAddressPrefix);
-        }
-
-        private void System32Box_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

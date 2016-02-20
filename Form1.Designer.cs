@@ -36,8 +36,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.NewNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.FolderToggle = new System.Windows.Forms.CheckBox();
             this.System32Box = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.AddressLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox3
@@ -113,35 +116,51 @@
             this.label1.Text = "Use \"%1\" to refer to the file that is being rightclicked on";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // FolderToggle
-            // 
-            this.FolderToggle.AutoSize = true;
-            this.FolderToggle.Location = new System.Drawing.Point(233, 260);
-            this.FolderToggle.Name = "FolderToggle";
-            this.FolderToggle.Size = new System.Drawing.Size(85, 17);
-            this.FolderToggle.TabIndex = 8;
-            this.FolderToggle.Text = "Folder Mode";
-            this.FolderToggle.UseVisualStyleBackColor = true;
-            this.FolderToggle.CheckedChanged += new System.EventHandler(this.FolderToggle_CheckedChanged);
-            // 
             // System32Box
             // 
             this.System32Box.AutoSize = true;
             this.System32Box.Cursor = System.Windows.Forms.Cursors.No;
             this.System32Box.Enabled = false;
-            this.System32Box.Location = new System.Drawing.Point(324, 260);
+            this.System32Box.Location = new System.Drawing.Point(368, 260);
             this.System32Box.Name = "System32Box";
             this.System32Box.Size = new System.Drawing.Size(102, 17);
             this.System32Box.TabIndex = 9;
             this.System32Box.Text = "System32 Mode";
             this.System32Box.UseVisualStyleBackColor = true;
-            this.System32Box.CheckedChanged += new System.EventHandler(this.System32Box_CheckedChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "*",
+            "Folder"});
+            this.comboBox1.Location = new System.Drawing.Point(233, 258);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 10;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddressLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 284);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(563, 22);
+            this.statusStrip1.TabIndex = 11;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // AddressLabel
+            // 
+            this.AddressLabel.Name = "AddressLabel";
+            this.AddressLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(563, 287);
+            this.ClientSize = new System.Drawing.Size(563, 306);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.System32Box);
-            this.Controls.Add(this.FolderToggle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NewNameBox);
             this.Controls.Add(this.button3);
@@ -153,6 +172,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Global File Context Editor";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +188,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox NewNameBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox FolderToggle;
         private System.Windows.Forms.CheckBox System32Box;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel AddressLabel;
     }
 }

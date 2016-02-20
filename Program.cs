@@ -13,15 +13,10 @@ namespace ContextEditorCL
     class Program
     {
         public static string KeyAddressPrefix = @"*\shell\";
-        public static void SetEditMode(bool FolderMode)
+
+        public static void SetEditMode(string PrefixMode)
         {
-            if (FolderMode)
-            {
-                KeyAddressPrefix = @"folder\shell\";
-            }
-            else {
-                KeyAddressPrefix = @"*\shell\";
-            }
+            KeyAddressPrefix = PrefixMode + @"\shell\";
         }
 
         public static List<string> GetRegistryContent(string RegPath)
