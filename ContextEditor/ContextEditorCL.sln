@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextEditorCL", "ContextEditorCL.csproj", "{CC08B211-FCB3-4268-9D5B-7E1290BEBDD1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ContextEditorInstaller", "..\Installer\Installer.vdproj", "{03E769A0-99EE-44D8-92F7-4EEAA0F330B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,9 @@ Global
 		{CC08B211-FCB3-4268-9D5B-7E1290BEBDD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC08B211-FCB3-4268-9D5B-7E1290BEBDD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC08B211-FCB3-4268-9D5B-7E1290BEBDD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03E769A0-99EE-44D8-92F7-4EEAA0F330B3}.Debug|Any CPU.ActiveCfg = Debug
+		{03E769A0-99EE-44D8-92F7-4EEAA0F330B3}.Release|Any CPU.ActiveCfg = Release
+		{03E769A0-99EE-44D8-92F7-4EEAA0F330B3}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

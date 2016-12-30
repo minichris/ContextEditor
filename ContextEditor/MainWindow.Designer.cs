@@ -1,6 +1,6 @@
 ﻿namespace ContextEditorCL
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.MenuItemBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.CodeBox = new System.Windows.Forms.TextBox();
+            this.ApplyButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.NewNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.System32Box = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ModeSwitchBox = new System.Windows.Forms.ComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.AddressLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox3
+            // MenuItemBox
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(15, 25);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(131, 199);
-            this.listBox3.TabIndex = 0;
-            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
+            this.MenuItemBox.FormattingEnabled = true;
+            this.MenuItemBox.Location = new System.Drawing.Point(15, 25);
+            this.MenuItemBox.Name = "MenuItemBox";
+            this.MenuItemBox.Size = new System.Drawing.Size(131, 199);
+            this.MenuItemBox.TabIndex = 0;
+            this.MenuItemBox.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -61,43 +61,43 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Global Context Menu Items";
             // 
-            // textBox1
+            // CodeBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 25);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(399, 225);
-            this.textBox1.TabIndex = 2;
+            this.CodeBox.Location = new System.Drawing.Point(152, 25);
+            this.CodeBox.Multiline = true;
+            this.CodeBox.Name = "CodeBox";
+            this.CodeBox.Size = new System.Drawing.Size(399, 225);
+            this.CodeBox.TabIndex = 2;
             // 
-            // button1
+            // ApplyButton
             // 
-            this.button1.Location = new System.Drawing.Point(476, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ApplyButton.Location = new System.Drawing.Point(476, 256);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.Size = new System.Drawing.Size(75, 23);
+            this.ApplyButton.TabIndex = 3;
+            this.ApplyButton.Text = "Apply";
+            this.ApplyButton.UseVisualStyleBackColor = true;
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
-            // button2
+            // DeleteButton
             // 
-            this.button2.Location = new System.Drawing.Point(152, 256);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.DeleteButton.Location = new System.Drawing.Point(152, 256);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteButton.TabIndex = 4;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
-            // button3
+            // AddButton
             // 
-            this.button3.Location = new System.Drawing.Point(15, 256);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.AddButton.Location = new System.Drawing.Point(15, 256);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(75, 23);
+            this.AddButton.TabIndex = 5;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // NewNameBox
             // 
@@ -128,17 +128,17 @@
             this.System32Box.Text = "System32 Mode";
             this.System32Box.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // ModeSwitchBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.ModeSwitchBox.FormattingEnabled = true;
+            this.ModeSwitchBox.Items.AddRange(new object[] {
             "*",
             "Folder"});
-            this.comboBox1.Location = new System.Drawing.Point(233, 258);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 10;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.ModeSwitchBox.Location = new System.Drawing.Point(233, 258);
+            this.ModeSwitchBox.Name = "ModeSwitchBox";
+            this.ModeSwitchBox.Size = new System.Drawing.Size(121, 21);
+            this.ModeSwitchBox.TabIndex = 10;
+            this.ModeSwitchBox.SelectedIndexChanged += new System.EventHandler(this.ModeSwitchBox_SelectedIndexChanged);
             // 
             // statusStrip1
             // 
@@ -155,22 +155,22 @@
             this.AddressLabel.Name = "AddressLabel";
             this.AddressLabel.Size = new System.Drawing.Size(0, 17);
             // 
-            // Form1
+            // MainWindow
             // 
             this.ClientSize = new System.Drawing.Size(563, 306);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.ModeSwitchBox);
             this.Controls.Add(this.System32Box);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NewNameBox);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.ApplyButton);
+            this.Controls.Add(this.CodeBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.MenuItemBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "Global File Context Editor";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -180,16 +180,16 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox MenuItemBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox CodeBox;
+        private System.Windows.Forms.Button ApplyButton;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox NewNameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox System32Box;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ModeSwitchBox;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel AddressLabel;
     }

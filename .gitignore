@@ -1,3 +1,5 @@
 obj
 bin
 .vs
+ContextEditor/ffmpeg/
+Installer/Release/

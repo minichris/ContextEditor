@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Win32;
 using System.Windows.Forms;
-using System.IO;
-using System.Reflection;
 
 namespace ContextEditorCL
 {
@@ -111,48 +106,7 @@ namespace ContextEditorCL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            //args = new string[3];
-            //args[0] = "add";
-            //args[1] = "ToWebM";
-            //args[2] = AppDomain.CurrentDomain.BaseDirectory + "ffmpeg.exe -i \"%1\" -c:v libvpx -crf 10 -b:v 1M -c:a libvorbis \"%1\".webm";
-            /*if (args.Length == 0)//if there no command line arguments
-            {
-                Console.WriteLine("First argument options:");
-                Console.WriteLine("View");
-                Console.WriteLine("Add");
-                Console.WriteLine("Remove");
-                Console.WriteLine("\nSecond argument is the key name.");
-            }
-            else
-            {
-                switch (args[0])
-                {
-                    case "add":
-                        if (args.Length == 2)
-                        {
-                            Console.WriteLine("Missing commandline arguments...");
-                        }
-                        else
-                        {
-                            string CommandArgs = "";
-                            for (int ar = 2; ar < args.Length; ++ar)
-                            {
-                                CommandArgs = CommandArgs + args[ar] + " ";
-                            }
-                            AddKey(args[1], CommandArgs);
-                        }
-                        break;
-                    case "remove":
-                        RemoveKey(args[1]);
-                        break;
-                    default:
-                        ViewKey(args[1]);
-                        break;
-                }
-            }
-            Console.WriteLine("Done...");*/
-            //Console.ReadLine();
+            Application.Run(new MainWindow());
         }
     }
 }
